@@ -3,6 +3,7 @@ import UIKit
 
 // TODO: Codable과 Equatable 추가...
 // GIT TEST COMMIT
+// ONE MORE TEST
 struct Todo: Codable, Equatable {
     let id: Int
     var isDone: Bool
