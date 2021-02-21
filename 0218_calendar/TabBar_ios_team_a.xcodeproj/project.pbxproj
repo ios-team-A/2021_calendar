@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9828C4EA25DE628D008F9842 /* GITTESTViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828C4E925DE628D008F9842 /* GITTESTViewController.swift */; };
+		9828C4EE25DE68D2008F9842 /* CalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828C4ED25DE68D2008F9842 /* CalendarDetailViewController.swift */; };
 		DE69C16325DB58A100385553 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69C16225DB58A100385553 /* TodoListViewController.swift */; };
 		DE69C16725DB58C000385553 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69C16525DB58C000385553 /* Todo.swift */; };
 		DE69C16825DB58C000385553 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69C16625DB58C000385553 /* Storage.swift */; };
@@ -31,7 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9828C4E925DE628D008F9842 /* GITTESTViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GITTESTViewController.swift; sourceTree = "<group>"; };
+		9828C4ED25DE68D2008F9842 /* CalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewController.swift; sourceTree = "<group>"; };
 		DE69C16225DB58A100385553 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		DE69C16525DB58C000385553 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		DE69C16625DB58C000385553 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 				DE69C17C25DB65A700385553 /* AddViewController.swift */,
 				F0A8E40E25DA4C0A0072A690 /* LaunchScreen.storyboard */,
 				F0A8E41125DA4C0A0072A690 /* Info.plist */,
-				9828C4E925DE628D008F9842 /* GITTESTViewController.swift */,
+				9828C4ED25DE68D2008F9842 /* CalendarDetailViewController.swift */,
 			);
 			path = TabBar_ios_team_a;
 			sourceTree = "<group>";
@@ -211,10 +211,10 @@
 				F0A8E40425DA4C090072A690 /* AppDelegate.swift in Sources */,
 				DE69C16825DB58C000385553 /* Storage.swift in Sources */,
 				F0F98B0D25DE45FF008E4986 /* DBHelper.swift in Sources */,
-				9828C4EA25DE628D008F9842 /* GITTESTViewController.swift in Sources */,
 				F0A8E40625DA4C090072A690 /* SceneDelegate.swift in Sources */,
 				DE69C17A25DB659400385553 /* DetailViewController.swift in Sources */,
 				DE69C17625DB652A00385553 /* TableViewController.swift in Sources */,
+				9828C4EE25DE68D2008F9842 /* CalendarDetailViewController.swift in Sources */,
 				DEE3BA6125DB4CDA00F75A8A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
