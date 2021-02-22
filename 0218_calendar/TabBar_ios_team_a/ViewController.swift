@@ -4,9 +4,6 @@ class ViewController: UIViewController {
     let db = DBHelper()
     
     override func viewDidLoad() {
-    
         super.viewDidLoad()
     }
-  
-   
 }

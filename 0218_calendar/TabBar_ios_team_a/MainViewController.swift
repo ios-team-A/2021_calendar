@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SQLite3
 
-class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource ,UICollectionViewDelegateFlowLayout {
+class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
   @IBOutlet weak var monthLabel: UILabel!
   @IBOutlet weak var collectionView: UICollectionView!
@@ -15,12 +16,20 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
   var selectedDate = Date()
   var totalDates = [String]()
   let calendarHelper = CalendarHelper()
-  
+  let db = DBHelper()
+  var yearMonth = ""
+
   override func viewDidLoad() {
     super.viewDidLoad()
     setMonthView()
   }
-  
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SendToCalendarDetail" {
+            if let vc = segue.destination as? CalendarDetailViewController {
+                vc.now = sender as? String ?? ""
+            }
+        }
+    }
   func setMonthView() {
     totalDates.removeAll()
     let datesInMonth = calendarHelper.numOfDatesInMonth(date: selectedDate)
@@ -39,6 +48,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     monthLabel.text = calendarHelper.monthString(date: selectedDate) + "월 " + calendarHelper.yearString(date: selectedDate)
+    yearMonth = calendarHelper.yearString(date: selectedDate) + calendarHelper.monthString(date: selectedDate)
     collectionView.reloadData()
   }
   
@@ -57,32 +67,22 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     cell.dateLabel.text = totalDates[indexPath.item]
 
-    if cell.calendarDetailButton.isSelected {
-      selected()
-    }
-    
     return cell
-  }
-    
-  // MARK: cell을 선택했을 때 detailVC를 present하는 함수.
-  func selected() {
-    guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "CalendarDetailViewController") as? CalendarDetailViewController else { return }
-    detailVC.modalPresentationStyle = .fullScreen
-    present(detailVC, animated: true)
   }
   
   func collectionView(
     _ collectionView: UICollectionView,
     didDeselectItemAt indexPath: IndexPath) {
+    let now = yearMonth + totalDates[indexPath.item]
+    performSegue(withIdentifier: "SendToCalendarDetail", sender: now)
   }
   
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
     sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let width = (collectionView.frame.size.width)/9
-    let height = width * 10/7
-    return CGSize(width: width, height: height)
+    let width = (collectionView.frame.size.width-30)/8
+    return CGSize(width: width, height: width)
   }
   
   @IBAction func prevMonthBtn(_ sender: Any) {
@@ -93,14 +93,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     selectedDate = calendarHelper.nextMonth(date: selectedDate)
     setMonthView()
   }
-  
-  // MARK: cell 안에 있는 버튼에 action 추가.
-  @IBAction func toDetialVC(_ sender: Any) {
-    selected()
-  }
 }
 
 class CalendarCell: UICollectionViewCell{
   @IBOutlet weak var dateLabel: UILabel!
-  @IBOutlet weak var calendarDetailButton: UIButton!
 }

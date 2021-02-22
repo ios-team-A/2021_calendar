@@ -8,7 +8,7 @@
 import UIKit
 
 class CalendarDetailViewController: UIViewController {
-    
+    let db = DBHelper()
 
     @IBOutlet weak var workplaceImage: UIImageView!
     @IBOutlet weak var houseImage: UIImageView!
@@ -28,6 +28,7 @@ class CalendarDetailViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var bodyTextField: UITextField!
     
+    var now = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +50,9 @@ class CalendarDetailViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         } else {
             //MARK: TODO : 일정 제목, 일정 내용, 일정 종류를 DB에 전송하기
+            let ci = CalendarInstance(title: titleTextField.text! as NSString, date: 20210222, calendar_group: "1")
+            db.insertIntoCalendar(calendarInstance: ci)
             dismiss(animated: true, completion: nil)
-            
         }
         
     }

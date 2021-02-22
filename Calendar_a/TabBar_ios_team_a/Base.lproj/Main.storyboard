@@ -507,7 +507,7 @@
         <scene sceneID="4To-ER-jaj">
             <objects>
                 <viewController id="1bw-oH-ZgB" customClass="DetailViewController" customModule="TabBar_ios_team_a" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="3gC-HB-WFT">
+                    <view key="view" contentMode="scaleToFill" id="3gC-HB-WFT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -521,8 +521,7 @@
                         <viewLayoutGuide key="safeArea" id="8P2-6k-hzJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Vn4-iI-Zil" firstAttribute="top" secondItem="8P2-6k-hzJ" secondAttribute="top" constant="126" id="J4U-1Q-YOA"/>
-                            <constraint firstItem="8P2-6k-hzJ" firstAttribute="bottom" secondItem="Vn4-iI-Zil" secondAttribute="bottom" constant="575" id="QOE-0m-mkI"/>
+                            <constraint firstItem="Vn4-iI-Zil" firstAttribute="top" secondItem="8P2-6k-hzJ" secondAttribute="top" constant="126" id="OlV-G1-vZN"/>
                             <constraint firstItem="Vn4-iI-Zil" firstAttribute="leading" secondItem="8P2-6k-hzJ" secondAttribute="leading" constant="57" id="jIw-j4-979"/>
                             <constraint firstItem="8P2-6k-hzJ" firstAttribute="trailing" secondItem="Vn4-iI-Zil" secondAttribute="trailing" constant="64" id="tVC-dU-QJT"/>
                         </constraints>

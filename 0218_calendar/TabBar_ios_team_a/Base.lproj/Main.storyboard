@@ -104,26 +104,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lju-40-cHI">
-                                                    <rect key="frame" x="0.0" y="0.0" width="57" height="89"/>
-                                                    <connections>
-                                                        <action selector="toDetialVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n23-HH-E9F"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="EvS-EN-njt" firstAttribute="centerY" secondItem="Bvq-IS-KQ4" secondAttribute="centerY" id="0Av-cl-URf"/>
-                                                <constraint firstAttribute="bottom" secondItem="Lju-40-cHI" secondAttribute="bottom" id="FlO-zU-1hd"/>
                                                 <constraint firstItem="EvS-EN-njt" firstAttribute="centerX" secondItem="Bvq-IS-KQ4" secondAttribute="centerX" id="YCZ-9b-wF7"/>
-                                                <constraint firstItem="Lju-40-cHI" firstAttribute="top" secondItem="Bvq-IS-KQ4" secondAttribute="top" id="bNy-XC-28l"/>
-                                                <constraint firstItem="Lju-40-cHI" firstAttribute="leading" secondItem="Bvq-IS-KQ4" secondAttribute="leading" id="s1J-r0-Ir1"/>
-                                                <constraint firstAttribute="trailing" secondItem="Lju-40-cHI" secondAttribute="trailing" id="z0Y-Yf-eB6"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="57" height="89"/>
                                         <connections>
-                                            <outlet property="calendarDetailButton" destination="Lju-40-cHI" id="Rfk-nY-djr"/>
                                             <outlet property="dateLabel" destination="EvS-EN-njt" id="Lik-as-xFi"/>
+                                            <segue destination="n3k-Fi-glq" kind="presentation" identifier="SendToCalendarDetail" id="sfy-he-qfp"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -167,7 +157,6 @@
                     <connections>
                         <outlet property="collectionView" destination="2qU-YT-ANU" id="bj7-HK-q4c"/>
                         <outlet property="monthLabel" destination="vKj-cq-mC6" id="2y3-rb-Hrc"/>
-                        <segue destination="n3k-Fi-glq" kind="presentation" identifier="SendToCalendarDetail" id="qnZ-ae-Ym1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -732,7 +721,7 @@
         <scene sceneID="4To-ER-jaj">
             <objects>
                 <viewController id="1bw-oH-ZgB" customClass="DetailViewController" customModule="TabBar_ios_team_a" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="3gC-HB-WFT">
+                    <view key="view" contentMode="scaleToFill" id="3gC-HB-WFT">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

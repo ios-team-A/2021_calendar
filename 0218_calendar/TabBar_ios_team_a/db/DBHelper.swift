@@ -167,8 +167,38 @@ class DBHelper {
            }
            // 4
            sqlite3_finalize(insertStatement2)
-
-
+    }
+    func insertIntoCalendar(calendarInstance: CalendarInstance){
+        //calendar insert
+        let insertStatementString = "INSERT INTO calendar (title, date, calendar_group, alarm_hour, alarm_min) VALUES (?, ?, ?, ?, ?);"
+       
+        var insertStatement: OpaquePointer? = nil
+           
+           // 1
+           if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
+            
+//               let title: NSString = "철수와 약속"
+//               let date: Int32 = 20210220
+//               let calendar_group: NSString = "friends"
+//               let alarm_hour: Int32 = 10
+//               let alarm_min: Int32 = 30
+               // 2
+               sqlite3_bind_text(insertStatement, 1, calendarInstance.title.utf8String, -1, nil)
+               sqlite3_bind_int(insertStatement, 2, calendarInstance.date)
+               sqlite3_bind_text(insertStatement, 3, calendarInstance.calendar_group.utf8String, -1, nil)
+               sqlite3_bind_int(insertStatement, 4, calendarInstance.alarm_hour)
+               sqlite3_bind_int(insertStatement, 5, calendarInstance.alarm_min)
+               //3
+               if sqlite3_step(insertStatement) == SQLITE_DONE {
+                   print("Successfully inserted row.")
+               } else {
+                   print("Could not insert row.")
+               }
+           } else {
+               print("INSERT statement could not be prepared.")
+           }
+           // 4
+           sqlite3_finalize(insertStatement)
     }
     
    
