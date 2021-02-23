@@ -176,12 +176,6 @@ class DBHelper {
            
            // 1
            if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) == SQLITE_OK {
-            
-//               let title: NSString = "철수와 약속"
-//               let date: Int32 = 20210220
-//               let calendar_group: NSString = "friends"
-//               let alarm_hour: Int32 = 10
-//               let alarm_min: Int32 = 30
                // 2
                sqlite3_bind_text(insertStatement, 1, calendarInstance.title.utf8String, -1, nil)
                sqlite3_bind_int(insertStatement, 2, calendarInstance.date)
@@ -201,6 +195,56 @@ class DBHelper {
            sqlite3_finalize(insertStatement)
     }
     
+    func updateInstCalendar(calendarInstance: CalendarInstance){
+        //calendar update
+        let updateStatementString = "UPDATE calendar SET title = ?, calendar_group = ?, alarm_hour = ?, alarm_min = ? WHERE date = ?;"
+       
+        var updateStatement: OpaquePointer? = nil
+           
+           // 1
+           if sqlite3_prepare_v2(db, updateStatementString, -1, &updateStatement, nil) == SQLITE_OK {
+               // 2
+               sqlite3_bind_text(updateStatement, 1, calendarInstance.title.utf8String, -1, nil)
+               sqlite3_bind_text(updateStatement, 2, calendarInstance.calendar_group.utf8String, -1, nil)
+               sqlite3_bind_int(updateStatement, 3, calendarInstance.alarm_hour)
+               sqlite3_bind_int(updateStatement, 4, calendarInstance.alarm_min)
+               sqlite3_bind_int(updateStatement, 5, calendarInstance.date)
+               //3
+               if sqlite3_step(updateStatement) == SQLITE_DONE {
+                   print("Successfully updated row.")
+               } else {
+                   print("Could not insert row.")
+               }
+           } else {
+               print("INSERT statement could not be prepared.")
+           }
+           // 4
+           sqlite3_finalize(updateStatement)
+    }
+    
+    func deleteInstCalendar(calendarInstance: CalendarInstance){
+        //calendar delete
+        let deleteStatementString = "DELETE FROM calendar WHERE date = ? AND title = ?;"
+       
+        var deleteStatement: OpaquePointer? = nil
+           
+           // 1
+           if sqlite3_prepare_v2(db, deleteStatementString, -1, &deleteStatement, nil) == SQLITE_OK {
+               // 2
+               sqlite3_bind_int(deleteStatement, 1, calendarInstance.date)
+               sqlite3_bind_text(deleteStatement, 2, calendarInstance.title.utf8String, -1, nil)
+               //3
+               if sqlite3_step(deleteStatement) == SQLITE_DONE {
+                   print("Successfully delete row.")
+               } else {
+                   print("Could not delete row.")
+               }
+           } else {
+               print("DELETE statement could not be prepared.")
+           }
+           // 4
+           sqlite3_finalize(deleteStatement)
+    }
    
 }
 
