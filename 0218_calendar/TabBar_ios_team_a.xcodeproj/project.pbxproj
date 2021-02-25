@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9828C4EE25DE68D2008F9842 /* CalendarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828C4ED25DE68D2008F9842 /* CalendarDetailViewController.swift */; };
+		9828C50925E4AC59008F9842 /* CalendarCurrentTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828C50825E4AC59008F9842 /* CalendarCurrentTaskViewController.swift */; };
 		DE69C16325DB58A100385553 /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69C16225DB58A100385553 /* TodoListViewController.swift */; };
 		DE69C16725DB58C000385553 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69C16525DB58C000385553 /* Todo.swift */; };
 		DE69C16825DB58C000385553 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE69C16625DB58C000385553 /* Storage.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		9828C4ED25DE68D2008F9842 /* CalendarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailViewController.swift; sourceTree = "<group>"; };
+		9828C50825E4AC59008F9842 /* CalendarCurrentTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCurrentTaskViewController.swift; sourceTree = "<group>"; };
 		DE69C16225DB58A100385553 /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		DE69C16525DB58C000385553 /* Todo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		DE69C16625DB58C000385553 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				DEE3BA6025DB4CDA00F75A8A /* MainViewController.swift */,
 				F0A8E40725DA4C090072A690 /* ViewController.swift */,
 				F0A8E40925DA4C090072A690 /* Main.storyboard */,
+				9828C50825E4AC59008F9842 /* CalendarCurrentTaskViewController.swift */,
 				9828C4ED25DE68D2008F9842 /* CalendarDetailViewController.swift */,
 				DE8EE60C25E3F6B800A13BA6 /* CalendarInstance.swift */,
 				DE69C16625DB58C000385553 /* Storage.swift */,
@@ -207,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE69C16725DB58C000385553 /* Todo.swift in Sources */,
+				9828C50925E4AC59008F9842 /* CalendarCurrentTaskViewController.swift in Sources */,
 				DE69C16325DB58A100385553 /* TodoListViewController.swift in Sources */,
 				DEE3BA6425DB4D1C00F75A8A /* CalendarHelper.swift in Sources */,
 				DE69C17D25DB65A700385553 /* AddViewController.swift in Sources */,

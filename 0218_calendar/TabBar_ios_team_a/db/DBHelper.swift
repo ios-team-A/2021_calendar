@@ -33,7 +33,7 @@ class DBHelper {
     }
     
     func createTable(){
-     let query = "CREATE TABLE IF NOT EXISTS todo(date INTEGER NOT NULL, title TEXT NOT NULL, comleteOrNot INTEGER NOT NULL, PRIMARY KEY(date, title));"
+     let query = "CREATE TABLE IF NOT EXISTS todo(date TEXT NOT NULL, title TEXT NOT NULL, comleteOrNot INTEGER NOT NULL, PRIMARY KEY(date, title));"
         var createTable : OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, query, -1, &createTable, nil) == SQLITE_OK {
@@ -64,7 +64,7 @@ class DBHelper {
            }
         
         
-        let query2 = "CREATE TABLE IF NOT EXISTS calendar(title TEXT NOT NULL, date INTEGER NOT NULL, calendar_group TEXT NOT NULL, alarm_hour INTEGER, alarm_min INTEGER, PRIMARY KEY(date, title));"
+        let query2 = "CREATE TABLE IF NOT EXISTS calendar(title TEXT NOT NULL, date TEXT NOT NULL, calendar_group TEXT NOT NULL, alarm_hour INTEGER, alarm_min INTEGER, id integer primary key autoincrement);"
            var createTable2 : OpaquePointer? = nil
            
            if sqlite3_prepare_v2(self.db, query2, -1, &createTable2, nil) == SQLITE_OK {
@@ -247,4 +247,3 @@ class DBHelper {
     }
    
 }
-

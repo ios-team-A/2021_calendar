@@ -23,9 +23,12 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     super.viewDidLoad()
     setMonthView()
   }
+    
+    // 디테일뷰 구분자 = SendToCalendarDetail
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SendToCalendarDetail" {
-            if let vc = segue.destination as? CalendarDetailViewController {
+        if segue.identifier == "SendToCalendarCurrentTask" {
+            if let vc = segue.destination as? CalendarCurrentTaskViewController {
+                //센더
                 vc.now = sender as? String ?? ""
             }
         }
@@ -74,7 +77,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     _ collectionView: UICollectionView,
     didDeselectItemAt indexPath: IndexPath) {
     let now = yearMonth + totalDates[indexPath.item]
-    performSegue(withIdentifier: "SendToCalendarDetail", sender: now)
+    performSegue(withIdentifier: "SendToCalendarCurrentTask", sender: now)
   }
   
   func collectionView(

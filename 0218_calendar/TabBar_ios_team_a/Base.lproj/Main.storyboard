@@ -113,7 +113,7 @@
                                         <size key="customSize" width="57" height="89"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="EvS-EN-njt" id="Lik-as-xFi"/>
-                                            <segue destination="n3k-Fi-glq" kind="presentation" identifier="SendToCalendarDetail" id="sfy-he-qfp"/>
+                                            <segue destination="TV3-NF-hzn" kind="showDetail" identifier="SendToCalendarCurrentTask" id="vnr-1X-xcy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -374,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dmM-gl-Ehx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2687.6923076923076" y="-182.70142180094786"/>
+            <point key="canvasLocation" x="3792" y="86"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="k6y-dx-gl4">
@@ -750,10 +750,125 @@
             </objects>
             <point key="canvasLocation" x="3629" y="-639"/>
         </scene>
+        <!--Calendar Current Task View Controller-->
+        <scene sceneID="gM6-Zg-eFc">
+            <objects>
+                <viewController id="TV3-NF-hzn" customClass="CalendarCurrentTaskViewController" customModule="TabBar_ios_team_a" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Osh-3W-tjg">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="V2j-eS-OfR">
+                                <rect key="frame" x="75.000000000000014" y="314.33333333333337" width="241.33333333333331" height="129.66666666666666"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="0mh-2e-aNF"/>
+                                    <constraint firstAttribute="height" constant="131.00000000000006" id="fAF-Ka-Rdc"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzz-UM-cRp">
+                                <rect key="frame" x="16" y="25" width="32" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="뒤로">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButton:" destination="TV3-NF-hzn" eventType="touchUpInside" id="wfQ-mt-97z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRc-PB-gAe">
+                                <rect key="frame" x="342" y="25" width="32" height="34"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="추가">
+                                    <color key="titleColor" systemColor="labelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTaskButton:" destination="TV3-NF-hzn" eventType="touchUpInside" id="FvG-PY-S5I"/>
+                                    <segue destination="n3k-Fi-glq" kind="presentation" identifier="SendToCalendarDetail" id="Kxq-51-7VZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="yyyy mm월 dd일" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FU0-x7-VpF">
+                                <rect key="frame" x="134" y="32" width="122.33333333333331" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Xj-TK-8g4">
+                                <rect key="frame" x="0.0" y="60" width="390" height="696"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="70" id="vYq-dC-PHf" customClass="TaskCell" customModule="TabBar_ios_team_a" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="390" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vYq-dC-PHf" id="y3p-m8-yDi">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="workplace.png" translatesAutoresizingMaskIntoConstraints="NO" id="vO7-gN-iYt">
+                                                    <rect key="frame" x="320" y="10" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="추가된 일정 제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvL-j0-39f">
+                                                    <rect key="frame" x="20" y="11" width="257" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="taskKindsImageVIew" destination="vO7-gN-iYt" id="eMU-MR-7wa"/>
+                                            <outlet property="taskTitleLabel" destination="GvL-j0-39f" id="vPc-wN-x7X"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 추가한 일정이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEK-a6-B3k">
+                                <rect key="frame" x="100.33333333333333" y="456.66666666666669" width="189.66666666666669" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mzf-Jz-8DR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gzz-UM-cRp" firstAttribute="leading" secondItem="mzf-Jz-8DR" secondAttribute="leading" constant="16" id="0YQ-cG-4ky"/>
+                            <constraint firstItem="1Xj-TK-8g4" firstAttribute="leading" secondItem="mzf-Jz-8DR" secondAttribute="leading" id="3F5-zI-El3"/>
+                            <constraint firstItem="V2j-eS-OfR" firstAttribute="top" secondItem="YEK-a6-B3k" secondAttribute="bottom" constant="-165.30000000000001" id="3H7-Pp-DFv"/>
+                            <constraint firstItem="JRc-PB-gAe" firstAttribute="centerY" secondItem="gzz-UM-cRp" secondAttribute="centerY" id="6Ly-RO-Td7"/>
+                            <constraint firstItem="V2j-eS-OfR" firstAttribute="centerY" secondItem="mzf-Jz-8DR" secondAttribute="centerY" id="9RW-jF-zbZ"/>
+                            <constraint firstItem="1Xj-TK-8g4" firstAttribute="top" secondItem="mzf-Jz-8DR" secondAttribute="top" constant="60" id="U1E-9e-xwy"/>
+                            <constraint firstItem="YEK-a6-B3k" firstAttribute="centerX" secondItem="V2j-eS-OfR" secondAttribute="centerX" id="V9U-Xh-IQa"/>
+                            <constraint firstItem="FU0-x7-VpF" firstAttribute="centerX" secondItem="mzf-Jz-8DR" secondAttribute="centerX" id="b8L-Ba-h9e"/>
+                            <constraint firstItem="FU0-x7-VpF" firstAttribute="top" secondItem="mzf-Jz-8DR" secondAttribute="top" constant="32" id="dZx-zI-CgG"/>
+                            <constraint firstItem="gzz-UM-cRp" firstAttribute="top" secondItem="mzf-Jz-8DR" secondAttribute="top" constant="25" id="dwd-dE-QUh"/>
+                            <constraint firstItem="mzf-Jz-8DR" firstAttribute="trailing" secondItem="JRc-PB-gAe" secondAttribute="trailing" constant="16" id="g6F-3e-oUv"/>
+                            <constraint firstItem="V2j-eS-OfR" firstAttribute="centerX" secondItem="mzf-Jz-8DR" secondAttribute="centerX" id="lzQ-0L-rok"/>
+                            <constraint firstItem="JRc-PB-gAe" firstAttribute="top" secondItem="mzf-Jz-8DR" secondAttribute="top" constant="25" id="s3Z-BS-pf5"/>
+                            <constraint firstItem="mzf-Jz-8DR" firstAttribute="bottom" secondItem="1Xj-TK-8g4" secondAttribute="bottom" id="tFQ-nv-AkN"/>
+                            <constraint firstItem="mzf-Jz-8DR" firstAttribute="trailing" secondItem="1Xj-TK-8g4" secondAttribute="trailing" id="xAM-tv-X4f"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FwF-Cd-OIx"/>
+                    <connections>
+                        <outlet property="addButton" destination="JRc-PB-gAe" id="CQb-mm-cKi"/>
+                        <outlet property="backButton" destination="gzz-UM-cRp" id="cOd-Jh-HRv"/>
+                        <outlet property="currentDateLabel" destination="FU0-x7-VpF" id="WWN-2f-Wo5"/>
+                        <outlet property="nothingAddedImageView" destination="V2j-eS-OfR" id="iI6-Zt-jDT"/>
+                        <outlet property="nothingAddedLabel" destination="YEK-a6-B3k" id="ogy-iB-dMo"/>
+                        <outlet property="tableView" destination="1Xj-TK-8g4" id="kdv-uT-hII"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rsf-MA-EGC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2817" y="85"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <image name="calendar.badge.plus" catalog="system" width="128" height="108"/>
         <image name="calendar.png" width="384" height="384"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
