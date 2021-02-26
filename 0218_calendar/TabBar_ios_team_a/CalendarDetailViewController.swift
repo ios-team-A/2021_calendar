@@ -50,9 +50,9 @@ class CalendarDetailViewController: UIViewController {
             present(alert, animated: true, completion: nil)
         } else {
             //MARK: TODO : 일정 제목, 일정 내용, 일정 종류를 DB에 전송하기
-            let ci = CalendarInstance(title: titleTextField.text! as NSString, date: 20210222, calendar_group: "1")
+            let ci = CalendarInstance(title: titleTextField.text! as NSString, date: now as NSString, calendar_group: "1")
             db.insertIntoCalendar(calendarInstance: ci)
-            dismiss(animated: true, completion: nil)
+            dismiss(animated: true, completion: presentedViewController?.viewDidLoad)
         }
         
     }

@@ -10,7 +10,7 @@ import UIKit
 
 struct CalendarInstance {
     var title: NSString = ""
-    var date: Int32 = 0
+    var date: NSString = ""
     var calendar_group: NSString = ""
     var alarm_hour = Int32()
     var alarm_min = Int32()

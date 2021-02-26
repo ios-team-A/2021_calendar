@@ -99,20 +99,50 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EvS-EN-njt">
-                                                    <rect key="frame" x="24.666666666666668" y="34.333333333333336" width="7.6666666666666679" height="20.333333333333336"/>
+                                                    <rect key="frame" x="24.666666666666668" y="7.9999999999999982" width="7.6666666666666679" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiX-Cr-pGo">
+                                                    <rect key="frame" x="28.666666666666668" y="31" width="0.0" height="0.0"/>
+                                                    <color key="backgroundColor" red="0.67177327473958337" green="0.81980719533907309" blue="1" alpha="0.52155430269557124" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmb-U6-yKF">
+                                                    <rect key="frame" x="28.666666666666668" y="40.333333333333336" width="0.0" height="0.0"/>
+                                                    <color key="backgroundColor" red="0.67177327470000003" green="0.81980719530000001" blue="1" alpha="0.52155430270000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvE-eZ-zMj">
+                                                    <rect key="frame" x="28.666666666666668" y="35.666666666666664" width="0.0" height="0.0"/>
+                                                    <color key="backgroundColor" red="0.67177327470000003" green="0.81980719530000001" blue="1" alpha="0.52155430270000003" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EvS-EN-njt" firstAttribute="centerY" secondItem="Bvq-IS-KQ4" secondAttribute="centerY" id="0Av-cl-URf"/>
+                                                <constraint firstItem="dvE-eZ-zMj" firstAttribute="centerX" secondItem="Bvq-IS-KQ4" secondAttribute="centerX" id="Rss-9D-Eoy"/>
+                                                <constraint firstItem="cmb-U6-yKF" firstAttribute="top" secondItem="dvE-eZ-zMj" secondAttribute="bottom" constant="4.6666666666666643" id="VT1-Dj-S6t"/>
+                                                <constraint firstItem="NiX-Cr-pGo" firstAttribute="centerX" secondItem="Bvq-IS-KQ4" secondAttribute="centerX" id="Xwq-zw-ogV"/>
                                                 <constraint firstItem="EvS-EN-njt" firstAttribute="centerX" secondItem="Bvq-IS-KQ4" secondAttribute="centerX" id="YCZ-9b-wF7"/>
+                                                <constraint firstItem="cmb-U6-yKF" firstAttribute="centerX" secondItem="Bvq-IS-KQ4" secondAttribute="centerX" id="ZzY-hT-LHu"/>
+                                                <constraint firstItem="NiX-Cr-pGo" firstAttribute="top" secondItem="EvS-EN-njt" secondAttribute="bottom" constant="2.6666666666666714" id="bMJ-yB-GLt"/>
+                                                <constraint firstItem="EvS-EN-njt" firstAttribute="top" secondItem="Bvq-IS-KQ4" secondAttribute="top" constant="8" id="bOd-Ol-XfG"/>
+                                                <constraint firstItem="dvE-eZ-zMj" firstAttribute="top" secondItem="NiX-Cr-pGo" secondAttribute="bottom" constant="4.6666666666666714" id="kax-LM-9ac"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="57" height="89"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="EvS-EN-njt" id="Lik-as-xFi"/>
+                                            <outlet property="titleLabel" destination="NiX-Cr-pGo" id="cod-Ub-CBo"/>
+                                            <outlet property="titleLabel2" destination="dvE-eZ-zMj" id="OW2-rA-910"/>
+                                            <outlet property="titleLabel3" destination="cmb-U6-yKF" id="oJb-pS-aTL"/>
                                             <segue destination="TV3-NF-hzn" kind="showDetail" identifier="SendToCalendarCurrentTask" id="vnr-1X-xcy"/>
                                         </connections>
                                     </collectionViewCell>
@@ -792,7 +822,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Xj-TK-8g4">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Xj-TK-8g4">
                                 <rect key="frame" x="0.0" y="60" width="390" height="696"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -822,6 +852,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="TV3-NF-hzn" id="VpZ-WZ-FL4"/>
+                                    <outlet property="delegate" destination="TV3-NF-hzn" id="ODD-mR-V6J"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아직 추가한 일정이 없습니다" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEK-a6-B3k">
                                 <rect key="frame" x="100.33333333333333" y="456.66666666666669" width="189.66666666666669" height="21"/>

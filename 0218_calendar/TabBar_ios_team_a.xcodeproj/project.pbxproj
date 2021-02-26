@@ -23,7 +23,6 @@
 		DEE3BA6425DB4D1C00F75A8A /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEE3BA6325DB4D1B00F75A8A /* CalendarHelper.swift */; };
 		F0A8E40425DA4C090072A690 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8E40325DA4C090072A690 /* AppDelegate.swift */; };
 		F0A8E40625DA4C090072A690 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8E40525DA4C090072A690 /* SceneDelegate.swift */; };
-		F0A8E40825DA4C090072A690 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A8E40725DA4C090072A690 /* ViewController.swift */; };
 		F0A8E40B25DA4C090072A690 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A8E40925DA4C090072A690 /* Main.storyboard */; };
 		F0A8E40D25DA4C0A0072A690 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0A8E40C25DA4C0A0072A690 /* Assets.xcassets */; };
 		F0A8E41025DA4C0A0072A690 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0A8E40E25DA4C0A0072A690 /* LaunchScreen.storyboard */; };
@@ -50,7 +49,6 @@
 		F0A8E40025DA4C090072A690 /* TabBar_ios_team_a.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TabBar_ios_team_a.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0A8E40325DA4C090072A690 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0A8E40525DA4C090072A690 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F0A8E40725DA4C090072A690 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0A8E40A25DA4C090072A690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0A8E40C25DA4C0A0072A690 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0A8E40F25DA4C0A0072A690 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				F0A8E40525DA4C090072A690 /* SceneDelegate.swift */,
 				DEE3BA6325DB4D1B00F75A8A /* CalendarHelper.swift */,
 				DEE3BA6025DB4CDA00F75A8A /* MainViewController.swift */,
-				F0A8E40725DA4C090072A690 /* ViewController.swift */,
 				F0A8E40925DA4C090072A690 /* Main.storyboard */,
 				9828C50825E4AC59008F9842 /* CalendarCurrentTaskViewController.swift */,
 				9828C4ED25DE68D2008F9842 /* CalendarDetailViewController.swift */,
@@ -214,7 +211,6 @@
 				DE69C16325DB58A100385553 /* TodoListViewController.swift in Sources */,
 				DEE3BA6425DB4D1C00F75A8A /* CalendarHelper.swift in Sources */,
 				DE69C17D25DB65A700385553 /* AddViewController.swift in Sources */,
-				F0A8E40825DA4C090072A690 /* ViewController.swift in Sources */,
 				F0A8E40425DA4C090072A690 /* AppDelegate.swift in Sources */,
 				DE69C16825DB58C000385553 /* Storage.swift in Sources */,
 				F0F98B0D25DE45FF008E4986 /* DBHelper.swift in Sources */,

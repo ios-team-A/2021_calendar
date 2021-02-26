@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
   let calendarHelper = CalendarHelper()
   let db = DBHelper()
   var yearMonth = ""
+  var day = ""
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,8 +29,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SendToCalendarCurrentTask" {
             if let vc = segue.destination as? CalendarCurrentTaskViewController {
-                //센더
-                vc.now = sender as? String ?? ""
+                vc.now = yearMonth + day
             }
         }
     }
@@ -67,25 +67,50 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? CalendarCell else {
       return UICollectionViewCell()
     }
-    
     cell.dateLabel.text = totalDates[indexPath.item]
-
+    cell.titleLabel.text = ""
+    cell.titleLabel2.text = ""
+    cell.titleLabel3.text = ""
+    if cell.dateLabel.text != ""{
+        let mclist = db.selectCalendar(now: yearMonth+totalDates[indexPath.item])
+        if mclist.count > 0 {
+            cell.titleLabel.text = mclist[0].title as String
+        }
+        if mclist.count > 1 {
+            cell.titleLabel2.text = mclist[1].title as String
+        }
+        if mclist.count > 2 {
+            cell.titleLabel3.text = mclist[2].title as String
+        }
+    }
     return cell
   }
-  
-  func collectionView(
-    _ collectionView: UICollectionView,
-    didDeselectItemAt indexPath: IndexPath) {
-    let now = yearMonth + totalDates[indexPath.item]
-    performSegue(withIdentifier: "SendToCalendarCurrentTask", sender: now)
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        day = totalDates[indexPath.item]
+        if totalDates[indexPath.item] != "" {
+            performSegue(withIdentifier: "SendToCalendarCurrentTask", sender: indexPath.item)
+        }
+    }
+    
+  override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    if let cell = sender as? CalendarCell {
+      if cell.dateLabel.text == "" {
+        return false
+      } else {
+        day = cell.dateLabel.text!
+      }
+    }
+    return true
   }
   
   func collectionView(
     _ collectionView: UICollectionView,
     layout collectionViewLayout: UICollectionViewLayout,
     sizeForItemAt indexPath: IndexPath) -> CGSize {
-    let width = (collectionView.frame.size.width-30)/8
-    return CGSize(width: width, height: width)
+    let width = (collectionView.frame.size.width)/9
+    let height = width * 2
+    return CGSize(width: width, height: height)
   }
   
   @IBAction func prevMonthBtn(_ sender: Any) {
@@ -100,4 +125,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
 class CalendarCell: UICollectionViewCell{
   @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel2: UILabel!
+    @IBOutlet weak var titleLabel3: UILabel!
 }

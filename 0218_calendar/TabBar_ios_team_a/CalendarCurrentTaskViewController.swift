@@ -6,6 +6,7 @@
 
 
 import UIKit
+import SQLite3
 
 class CalendarCurrentTaskViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -17,8 +18,10 @@ class CalendarCurrentTaskViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var nothingAddedLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
+    let db = DBHelper()
+
     var now = ""
-    
+    var calList = [CalendarInstance]()
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "SendToCalendarDetail" {
@@ -31,9 +34,11 @@ class CalendarCurrentTaskViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if tableView.visibleCells.isEmpty {
+        calList = db.selectCalendar(now: now)
+        if calList.isEmpty {
             tableView.isHidden = true
         }
+        currentDateLabel.text = now
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -46,13 +51,14 @@ class CalendarCurrentTaskViewController: UIViewController, UITableViewDelegate, 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return calList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TaskCell else {
             return UITableViewCell()
         }
+        cell.taskTitleLabel.text = calList[indexPath.row].title as String
         return cell
     }
     
