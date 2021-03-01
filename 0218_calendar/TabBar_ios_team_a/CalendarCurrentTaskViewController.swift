@@ -23,12 +23,14 @@ class CalendarCurrentTaskViewController: UIViewController, UITableViewDelegate, 
     var now = ""
     var calList = [CalendarInstance]()
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "SendToCalendarDetail" {
-//            let vc = segue.destination as? CalendarDetailViewController
-//        }
-//
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SendToCalendarDetail" {
+            if let vc = segue.destination as? CalendarDetailViewController {
+                vc.now = self.now
+            }
+        }
+
+    }
     
     //MARK: - MainViewController에서 선택한 날짜의 정보를 currentDateLabel로 전달하기
     
