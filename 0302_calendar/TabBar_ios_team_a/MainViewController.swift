@@ -30,6 +30,8 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if segue.identifier == "SendToCalendarCurrentTask" {
             if let vc = segue.destination as? CalendarCurrentTaskViewController {
                 vc.now = yearMonth + day
+                vc.yearMonth = yearMonth
+                vc.date = day
                 print("\(vc.now)dfdfdfdfdff")
             }
         }

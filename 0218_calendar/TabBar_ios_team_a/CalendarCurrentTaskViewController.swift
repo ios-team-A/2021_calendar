@@ -21,7 +21,19 @@ class CalendarCurrentTaskViewController: UIViewController, UITableViewDelegate, 
     let db = DBHelper()
 
     var now = ""
-    var calList = [CalendarInstance]()
+    var yearMonth = ""
+    var date = ""
+    var titleString = ""
+    var t_string = ""
+    var calList: [CalendarInstance] = []{
+        didSet(old){
+            tableView.reloadData()
+        }
+        willSet(new){
+            tableView.reloadData()
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SendToCalendarDetail" {
