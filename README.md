@@ -9,5 +9,5 @@ iOS 스터디 A팀 프로젝트
 ## 팀원 역할
 💻 [yejin0928](https://github.com/yejin0928) : navigation view, sqlite DB 구축, 일정 편집/삭제/추가 구현    
 💻 [kms0524](https://github.com/kms0524) : todo list, detail view UI 구현      
-💻 [sio2whocodes](https://github.com/sio2whocodes) : calendar view, 일정 load 구현     
+💻 [sio2whocodes](https://github.com/sio2whocodes) : calendar view, 일정 load 구현, DB helper 함수 일부 구현     
 
